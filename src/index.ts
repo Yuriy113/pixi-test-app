@@ -3,7 +3,7 @@ import './index.css';
 
 const root: HTMLDivElement = document.querySelector('#root') as HTMLDivElement;
 const app = new App();
-console.log(app);
+// console.log(app);
 root.append(app.view as unknown as Node);
 
 declare global {
