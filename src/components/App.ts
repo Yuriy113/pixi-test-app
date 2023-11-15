@@ -1,7 +1,8 @@
-import { AnimatedSprite, Application, Assets, FederatedPointerEvent, Sprite, Texture } from 'pixi.js';
+import { Application, Assets, FederatedPointerEvent, Sprite } from 'pixi.js';
 import { Graphics } from '../controls/Graphics';
 import { Loader } from './Loader/Loader';
 import { Animation } from './Animation';
+import { CONSTANTS } from '../config/appConfig';
 
 class App extends Application {
   assets: any;
@@ -18,7 +19,7 @@ class App extends Application {
   async setup(): Promise<void> {
     await this.loader.loadAssets();
     this.addImage();
-    this.anim = new Animation(this.image.width / 2, this.image.height / 2);
+    this.anim = new Animation(this.image.width / 2, this.image.height / 2, this.ticker);
     this.stage.addChild(this.anim);
     this.anim.play();
   }
@@ -32,9 +33,7 @@ class App extends Application {
   }
 
   handleClick = (e: FederatedPointerEvent) => {
-    if (this.anim) {
-      this.anim.follow(e.globalX, e.globalY);
-    }
+    this.anim?.follow(e.globalX, e.globalY, CONSTANTS.VELOCITY);
   };
 }
 

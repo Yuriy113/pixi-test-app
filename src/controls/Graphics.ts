@@ -28,8 +28,8 @@ class Graphics {
       newHeight = innerWidth / appRatio;
     }
 
-    const maxWidth = 1280;
-    const maxHeight = 768;
+    const maxWidth = SCREEN.MAX_WIDTH;
+    const maxHeight = SCREEN.MAX_HEIGHT;
 
     if (newWidth > maxWidth) {
       newWidth = maxWidth;

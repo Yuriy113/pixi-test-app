@@ -1,6 +1,12 @@
 enum SCREEN {
   WIDTH = 1000,
   HEIGHT = 600,
+  MAX_WIDTH = 1280,
+  MAX_HEIGHT = 768,
 }
 
-export { SCREEN };
+enum CONSTANTS {
+  VELOCITY = 5,
+}
+
+export { SCREEN, CONSTANTS };
